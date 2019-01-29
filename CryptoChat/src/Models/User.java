@@ -1,4 +1,4 @@
-package BuisnessObjects;
+package Models;
 
 import java.io.Serializable;
 

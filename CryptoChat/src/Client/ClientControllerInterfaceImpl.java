@@ -2,14 +2,13 @@ package Client;
 
 import java.util.List;
 
-import BuisnessObjects.Message;
+import Models.MessageMessage;
 
 public interface ClientControllerInterfaceImpl {
 	
 	public void logUser();
-	public List<Message> readCachedMessages();
+	public List<MessageMessage> readCachedMessages();
 	public void connectToServer();
-	public List<Message> lookForNewMessages();
 	public void keepListening();
 	public void sendMessage();
 	void connectToLocalDataBase();

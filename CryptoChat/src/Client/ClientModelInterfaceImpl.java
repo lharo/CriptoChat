@@ -1,9 +1,9 @@
 package Client;
 
-import BuisnessObjects.Message;
-import BuisnessObjects.User;
+import Models.ConnectionMessage;
+import Models.User;
 
 public interface ClientModelInterfaceImpl {
 	
-	public Message createMessage(User usr, String msg);
+	public ConnectionMessage createMessage(User usr, String msg);
 }

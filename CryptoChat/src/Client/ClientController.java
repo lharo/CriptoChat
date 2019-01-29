@@ -2,7 +2,7 @@ package Client;
 
 import java.util.List;
 
-import BuisnessObjects.Message;
+import Models.MessageMessage;
 
 public class ClientController implements ClientControllerInterfaceImpl {
 
@@ -19,7 +19,7 @@ public class ClientController implements ClientControllerInterfaceImpl {
 	}
 
 	@Override
-	public List<Message> readCachedMessages() {
+	public List<MessageMessage> readCachedMessages() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -28,12 +28,6 @@ public class ClientController implements ClientControllerInterfaceImpl {
 	public void connectToServer() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public List<Message> lookForNewMessages() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
