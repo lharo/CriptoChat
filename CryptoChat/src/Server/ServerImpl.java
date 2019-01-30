@@ -43,11 +43,13 @@ public class ServerImpl implements ServerInterface {
 		for(Chat c : server.getActiveChats()) {
 			if(c.getChatRoomId() == msg.getChatId()) {
 				for(User u : c.getMembers()) {
-					try {
-						u.getConnection().getConnectedOutput().writeObject(msg);
-						System.out.println("The message was sent to the user: " + u.getUserName());
-					} catch (IOException e) {
-						System.out.println("Failed to send message to: " + u.getUserName());
+					if(u.getUserId() != msg.getSenderId()) {
+						try {
+							u.getConnection().getConnectedOutput().writeObject(msg);
+							System.out.println("The message was sent to the user: " + u.getUserName());
+						} catch (IOException e) {
+							System.out.println("Failed to send message to: " + u.getUserName());
+						}
 					}
 				}
 			}
@@ -94,6 +96,12 @@ public class ServerImpl implements ServerInterface {
 				return;
 			}
 		}
+	}
+
+	@Override
+	public Integer createChat() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

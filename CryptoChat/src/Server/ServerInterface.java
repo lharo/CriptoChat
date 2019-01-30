@@ -12,4 +12,5 @@ public interface ServerInterface {
 	public void connectToDataBase();
 	public void createServerSocket();
 	public void addToChat(ConnectionMessage msg);
+	public Integer createChat();
 }

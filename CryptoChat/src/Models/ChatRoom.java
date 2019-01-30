@@ -1,5 +1,6 @@
 package Models;
 
+import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ public class ChatRoom {
 	private Boolean isActive;
 	private ServerImpl server;
 	private Socket connectedSocket;
-	
+	private ObjectInputStream connectedInput;
 	
 	public Integer getChatRoomId() {
 		return chatRoomId;
@@ -57,6 +58,11 @@ public class ChatRoom {
 	public void setConnectedSocket(Socket connectedSocket) {
 		this.connectedSocket = connectedSocket;
 	}
-	
+	public ObjectInputStream getConnectedInput() {
+		return connectedInput;
+	}
+	public void setConnectedInput(ObjectInputStream connectedInput) {
+		this.connectedInput = connectedInput;
+	}
 	
 }
