@@ -12,5 +12,4 @@ public interface ClientControllerInterfaceImpl {
 	public void keepListening();
 	public void sendMessage();
 	void connectToLocalDataBase();
-	
 }

@@ -2,10 +2,13 @@ package Client;
 
 import java.util.List;
 
+import Models.Client;
 import Models.MessageMessage;
 
 public class ClientController implements ClientControllerInterfaceImpl {
 
+	private Client client;
+	
 	@Override
 	public void logUser() {
 		// TODO Auto-generated method stub
@@ -26,7 +29,6 @@ public class ClientController implements ClientControllerInterfaceImpl {
 
 	@Override
 	public void connectToServer() {
-		// TODO Auto-generated method stub
 		
 	}
 
