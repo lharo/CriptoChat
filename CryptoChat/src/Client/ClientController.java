@@ -7,7 +7,11 @@ import Models.MessageMessage;
 
 public class ClientController implements ClientControllerInterfaceImpl {
 
-	private Client client;
+	private ClientModel model;
+	
+	public ClientController(ClientModel model) {
+		this.model = model;
+	}
 	
 	@Override
 	public void logUser() {

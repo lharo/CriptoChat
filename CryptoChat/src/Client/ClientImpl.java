@@ -7,7 +7,10 @@ public class ClientImpl {
 	
 	public static void main(String[] args) {
 		
-		controller = new ClientController();
+		model = new ClientModel();
+		controller = new ClientController(model);
+		controller.connectToServer();
+		controller.connectToLocalDataBase();
 		
 	}
 
