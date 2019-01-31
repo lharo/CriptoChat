@@ -9,7 +9,11 @@ public class ClientImpl {
 		
 		model = new ClientModel();
 		controller = new ClientController(model);
+		
+		//Waits for input on javaFX APP either sign In or 
+		
 		controller.connectToServer();
+		//Gotta create it somewhere
 		controller.connectToLocalDataBase();
 		
 	}
