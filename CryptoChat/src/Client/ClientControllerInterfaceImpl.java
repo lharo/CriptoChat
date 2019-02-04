@@ -3,7 +3,6 @@ package Client;
 import java.util.List;
 
 import Models.MessageMessage;
-import Models.User;
 
 public interface ClientControllerInterfaceImpl {
 	

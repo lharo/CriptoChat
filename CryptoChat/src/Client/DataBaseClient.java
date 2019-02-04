@@ -13,7 +13,6 @@ public class DataBaseClient implements DatabaseInterface{
 
 	@Override
 	public void initializeDatabase() {
-		// TODO Auto-generated method stub
 		
 	}
 

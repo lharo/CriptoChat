@@ -4,9 +4,8 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.Date;
 
-import Server.ServerImpl;
-
 public class ChatRoom {
+	
 	private Integer chatRoomId;
 	private String chatRoomName;
 	private Date createdAt;

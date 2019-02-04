@@ -1,7 +1,6 @@
 package Client;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 
 import Models.ChatRoom;

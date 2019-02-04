@@ -20,9 +20,6 @@ public class LogInUI {
 	private JPasswordField passwordField;
 	private ClientController controller;
 	
-	/**
-	 * Launch the application.
-	 */
 	public void logIn(ClientController controller) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

@@ -2,8 +2,6 @@ package Shared;
 
 import java.util.List;
 
-import Models.ChatRoom;
-import Models.ConnectionMessage;
 import Models.MessageWTimestamp;
 import Models.User;
 

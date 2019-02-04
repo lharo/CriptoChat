@@ -18,7 +18,6 @@ public class ClientController implements ClientControllerInterfaceImpl {
 	
 	@Override
 	public void logUser(String usr, String pwd, Boolean isNew) {
-		// TODO Auto-generated method stub
 		connectToLocalDataBase();
 		if(isNew) user = dbClient.createNewUser(usr, pwd);
 		else user = dbClient.logInUser(usr, pwd);
