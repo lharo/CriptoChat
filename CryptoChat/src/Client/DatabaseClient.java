@@ -7,23 +7,19 @@ import Models.ChatRoom;
 import Models.MessageWTimestamp;
 import Models.User;
 import Shared.DatabaseInterface;
-import Test.UserTest;
 
-public class DataBaseClient implements DatabaseInterface{
+public class DatabaseClient implements DatabaseInterface {
 
 	@Override
 	public void initializeDatabase() {
+		// TODO Auto-generated method stub
 		
 	}
 
-	public User logInUser(String usr, String pwd) {
-		return UserTest.getTestUser();
-	}
-	
 	@Override
-	public User createNewUser(String usr, String pwd) {
+	public User createNewUser(User user) {
 		// TODO Auto-generated method stub
-		return UserTest.getTestUser();
+		return null;
 	}
 
 	@Override
@@ -38,16 +34,22 @@ public class DataBaseClient implements DatabaseInterface{
 		return null;
 	}
 
-	public List<ChatRoom> getChats(Integer id) {
+	@Override
+	public User createNewUser(String usr, String pwd) {
+		// TODO Auto-generated method stub
+		return Test.UserTest.getTestUser();
+	}
+
+	public List<ChatRoom> getChats(Integer userId) {
 		List<ChatRoom> chats = new ArrayList<ChatRoom>();
 		chats.add(Test.ChatTest.getTestChatRoom());
+		// TODO Auto-generated method stub
 		return chats;
 	}
 
-	@Override
-	public User createNewUser(User user) {
+	public User logInUser(String usr, String pwd) {
 		// TODO Auto-generated method stub
-		return null;
+		return Test.UserTest.getTestUser();
 	}
 
 }

@@ -13,8 +13,10 @@ public class ClientController implements ClientControllerInterfaceImpl {
 	private ChatRoom currentChat;
 	private List<ChatRoom> userChats;
 	private ClientHandler handler;
-	private DataBaseClient dbClient;
+	private DatabaseClient dbClient;
 	private ChatUI chatUi;
+
+
 	
 	@Override
 	public void logUser(String usr, String pwd, Boolean isNew) {
@@ -37,7 +39,7 @@ public class ClientController implements ClientControllerInterfaceImpl {
 
 	@Override
 	public void connectToLocalDataBase() {
-		dbClient = new DataBaseClient();
+		dbClient = new DatabaseClient();
 	}
 
 	@Override
@@ -49,7 +51,7 @@ public class ClientController implements ClientControllerInterfaceImpl {
 	@Override
 	public void connectToServer() {
 		handler = new ClientHandler(this);
-		new Thread(handler).start();
+		new Thread(handler).start();		
 	}
 
 	@Override
@@ -94,5 +96,17 @@ public class ClientController implements ClientControllerInterfaceImpl {
 
 	public void setChatUi(ChatUI chatUi) {
 		this.chatUi = chatUi;
+	}
+
+	@Override
+	public void logUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public User createUser() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
