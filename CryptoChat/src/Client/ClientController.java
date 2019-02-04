@@ -2,20 +2,43 @@ package Client;
 
 import java.util.List;
 
+import Models.ChatRoom;
+import Models.Connection;
 import Models.MessageMessage;
+import Models.User;
 
 public class ClientController implements ClientControllerInterfaceImpl {
-
+	
+	private User user;
+	private ChatRoom currentChat;
+	private List<ChatRoom> userChats;
+	private ClientHandler handler;
+	private DataBaseClient dbClient;
+	private ChatUI chatUi;
+	
 	@Override
-	public void logUser() {
+	public void logUser(String usr, String pwd, Boolean isNew) {
 		// TODO Auto-generated method stub
-		
+		connectToLocalDataBase();
+		if(isNew) user = dbClient.createNewUser(usr, pwd);
+		else user = dbClient.logInUser(usr, pwd);
+		connectToServer();
+		Connection con = new Connection();
+		con.setConnectedOutput(handler.getOos());
+		user.setConnection(con);
+		//Retrieve User Chats
+		List<ChatRoom> chats = dbClient.getChats(user.getUserId());
+		for(ChatRoom chat : chats) {
+			System.out.println("Registered Chat");
+			chat.setConnectedInput(handler.getOis());
+			chat.setConnectedSocket(handler.getConnectedSocket());
+		}
+		userChats = chats;
 	}
 
 	@Override
 	public void connectToLocalDataBase() {
-		// TODO Auto-generated method stub
-		
+		dbClient = new DataBaseClient();
 	}
 
 	@Override
@@ -26,8 +49,8 @@ public class ClientController implements ClientControllerInterfaceImpl {
 
 	@Override
 	public void connectToServer() {
-		// TODO Auto-generated method stub
-		
+		handler = new ClientHandler(this);
+		new Thread(handler).start();
 	}
 
 	@Override
@@ -42,4 +65,35 @@ public class ClientController implements ClientControllerInterfaceImpl {
 		
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public ChatRoom getCurrentChat() {
+		return currentChat;
+	}
+
+	public void setCurrentChat(ChatRoom currentChat) {
+		this.currentChat = currentChat;
+	}
+
+	public List<ChatRoom> getUserChats() {
+		return userChats;
+	}
+
+	public void setUserChats(List<ChatRoom> userChats) {
+		this.userChats = userChats;
+	}
+
+	public ChatUI getChatUi() {
+		return chatUi;
+	}
+
+	public void setChatUi(ChatUI chatUi) {
+		this.chatUi = chatUi;
+	}
 }

@@ -15,9 +15,7 @@ public class ChatRoomImpl implements Runnable {
 	private DatabaseServer dbServer = new DatabaseServer();
 	
 	public ChatRoomImpl(Socket tempSocket, ServerImpl serverImpl) {
-		chatRoom.setConnectedSocket(tempSocket);
-		chatRoom.setServer(serverImpl);
-		
+		chatRoom.setConnectedSocket(tempSocket);		
 	}
 	@Override
 	public void run() {
@@ -51,6 +49,8 @@ public class ChatRoomImpl implements Runnable {
 	}
 	private void processObject(ConnectionMessage receivedMessage) {
 		switch(receivedMessage.getContentCode()) {
+			//For every case make sure message has room to give the sender id so that it can be sent to them or not depending on the requirements
+			//Likewise change the forwardMessage function to reflect this
 			case 1:{
 				dbServer.createNewUser(receivedMessage.getUser());
 				//Compose answer with cc 1 and new user id;

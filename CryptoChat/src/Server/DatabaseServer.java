@@ -33,4 +33,10 @@ public class DatabaseServer implements DatabaseInterface {
 		return null;
 	}
 
+	@Override
+	public User createNewUser(String usr, String pwd) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

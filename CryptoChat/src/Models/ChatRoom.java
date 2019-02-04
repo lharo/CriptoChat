@@ -12,7 +12,6 @@ public class ChatRoom {
 	private Date createdAt;
 	private String[] users;
 	private Boolean isActive;
-	private ServerImpl server;
 	private Socket connectedSocket;
 	private ObjectInputStream connectedInput;
 	
@@ -45,12 +44,6 @@ public class ChatRoom {
 	}
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
-	}
-	public ServerImpl getServer() {
-		return server;
-	}
-	public void setServer(ServerImpl server) {
-		this.server = server;
 	}
 	public Socket getConnectedSocket() {
 		return connectedSocket;

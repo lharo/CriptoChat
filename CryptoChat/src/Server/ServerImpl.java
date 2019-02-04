@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Models.Chat;
+import Models.ChatRoom;
 import Models.ConnectionMessage;
 import Models.MessageMessage;
 import Models.Server;
@@ -14,6 +17,7 @@ import Models.User;
 public class ServerImpl implements ServerInterface {
 
 	private Server server = new Server();
+	private List<ChatRoom> chats = new ArrayList<ChatRoom>();
 	
 	@Override
 	public void startServer() {		
@@ -30,7 +34,7 @@ public class ServerImpl implements ServerInterface {
 				try {
 					Socket tempSocket = new Socket("127.0.0.1", port);
 						System.out.println("Connected to previously existing node at port " + port);
-					new Thread(new ChatRoomImpl(tempSocket, this)).start();;
+						new Thread(new ChatRoomImpl(tempSocket, this)).start();;
 				} catch (UnknownHostException e) {
 					e.printStackTrace();
 					System.out.println("Unknown Host Exception");
@@ -97,7 +101,11 @@ public class ServerImpl implements ServerInterface {
 			}
 		}
 	}
-
+	
+	public void addToList(ChatRoom chatRoom) {
+		chats.add(chatRoom);
+	}
+	
 	@Override
 	public Integer createChat() {
 		// TODO Auto-generated method stub

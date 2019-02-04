@@ -3,14 +3,15 @@ package Client;
 import java.util.List;
 
 import Models.MessageMessage;
+import Models.User;
 
 public interface ClientControllerInterfaceImpl {
 	
-	public void logUser();
 	public List<MessageMessage> readCachedMessages();
 	public void connectToServer();
 	public void keepListening();
 	public void sendMessage();
 	void connectToLocalDataBase();
+	public void logUser(String usr, String pwd, Boolean isNew);
 	
 }

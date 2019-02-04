@@ -1,6 +1,7 @@
 package Models;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable{
 
@@ -8,6 +9,8 @@ public class User implements Serializable{
 	private String userName;
 	private Integer userId;
 	private Connection connection;
+	private String password;
+	private Date createdAt;
 	
 	public String getUserName() {
 		return userName;
@@ -26,6 +29,18 @@ public class User implements Serializable{
 	}
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 	
 }
